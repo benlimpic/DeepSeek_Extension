@@ -1,8 +1,17 @@
 {
   "name": "deepseek-r1-local",
   "displayName": "DeepSeek-R1_local",
-  "description": "DeepSeek R1 locally run in Vs Code",
   "version": "0.0.1",
+  "publisher": "Ben",
+  "description": "DeepSeek R1 locally run in Vs Code",
+  "Contributes": {
+    "commands": [
+      {
+        "command": "deepseek-r1-local.start",
+        "title": "Chat with DeepSeek R1"
+      }
+    ]
+  },
   "engines": {
     "vscode": "^1.97.0"
   },
@@ -45,7 +54,6 @@
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.7.2",
     "ollama": "^0.5.12"
   }
 }
