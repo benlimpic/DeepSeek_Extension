@@ -16,7 +16,9 @@ export function activate(context: vscode.ExtensionContext) {
 
       panel.webview.onDidReceiveMessage(async (message: any) => {
         if (message.type === "chat") {
-          const userPrompt = message.text;
+          const userPrompt =
+            "Never show me anything between the <think></think> tags." +
+            message.text;
           let responseText = "";
 
           try {
@@ -54,8 +56,9 @@ function getWebviewContent(): string {
 	<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 		<style>
-			
+
 			body { font-family: sans-serif; margin: 1rem; }
 			#prompt {
 				width: 100%;
@@ -82,14 +85,12 @@ function getWebviewContent(): string {
 		</style>
 	</head>
 	<body>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
 		<h2>Deep Search</h2>
 		<textarea id="prompt" rows="3" placeholder="Ask something..."></textarea><br />
-		<button id="askBtn" class="improved-btn">
-				<span class="text-centered icon">
-					🚀
-				</span>
-			<div class="button-text"></div>
-		</button>
+		<button id="askBtn" type="button" class="btn btn-primary">Action!</button>
 		<div id="loading"></div>
 		<div id="response"></div>
 	
